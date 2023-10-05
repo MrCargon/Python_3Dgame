@@ -8,6 +8,9 @@ class Drawing:
         self.sc = sc
         self.sc_map = sc_map
         self.font = pygame.font.SysFont('Arial', 36, bold=True)
+        self.texture = {'1': pygame.image.load('res/img/white_rock_with_blue_wall.png').convert(),
+                        '2': pygame.image.load('res/img/brown_brick_wall.png').convert()
+                        }
     
     def background(self):
         # Draw sky
@@ -16,7 +19,7 @@ class Drawing:
         pygame.draw.rect(self.sc,DARKGRAY,(0,HALF_HEIGHT,WIDTH,HALF_HEIGHT))
 
     def world(self,player_pos, player_angle):
-        ray_casting(self.sc,player_pos,player_angle)
+        ray_casting(self.sc,player_pos,player_angle,self.texture)
 
     def fps(self, clock):
         display_fps = str(int(clock.get_fps()))

@@ -24,6 +24,11 @@ DISTANCE = NUM_RAYS / (2* math.tan(HALF_FOV))
 PROJ_COEFF = 3 * DISTANCE * TILE_SIZE
 SCALE = WIDTH // NUM_RAYS
 
+# texture settings
+TEXTURE_WIDTH = 1200
+TEXTURE_HEIGHT = 1200
+TEXTURE_SCALE = TEXTURE_WIDTH//TILE_SIZE
+
 # Player settings
 player_pos = (HALF_WIDTH,HALF_HEIGHT)
 player_angle = 0
