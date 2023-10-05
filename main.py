@@ -32,7 +32,7 @@ while True:
     # Draw ground
     # pygame.draw.rect(sc,DARKGRAY,(0,HALF_HEIGHT,WIDTH,HALF_HEIGHT))
     # New draw tool draw background
-    drawing.background()
+    drawing.background(player.angle)
     # New Drawing tool use not the ray cast
     drawing.world(player.pos,player.angle)
     # Draw FPS

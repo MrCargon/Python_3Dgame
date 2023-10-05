@@ -9,10 +9,15 @@ class Drawing:
         self.sc_map = sc_map
         self.font = pygame.font.SysFont('Arial', 36, bold=True)
         self.texture = {'1': pygame.image.load('res/img/white_rock_with_blue_wall.png').convert(),
-                        '2': pygame.image.load('res/img/brown_brick_wall.png').convert()
+                        '2': pygame.image.load('res/img/brown_brick_wall.png').convert(),
+                        'S': pygame.image.load('res/img/blue_sky.png').convert()
                         }
     
-    def background(self):
+    def background(self,angle):
+        sky_offset = -5*math.degrees(angle) % WIDTH
+        self.sc.blit(self.texture['S'],(sky_offset,0))
+        self.sc.blit(self.texture['S'],(sky_offset-WIDTH,0))
+        self.sc.blit(self.texture['S'],(sky_offset+WIDTH,0))
         # Draw sky
         pygame.draw.rect(self.sc,SKYBLUE,(0,0,WIDTH,HALF_HEIGHT))
         # Draw ground
@@ -33,5 +38,5 @@ class Drawing:
                                                  map_y + 12 * math.sin(player.angle)), 2)
         pygame.draw.circle(self.sc_map, RED, (int(map_x), int(map_y)), 5)
         for x, y in mini_map:
-            pygame.draw.rect(self.sc_map, GREEN, (x, y, MAP_TILE, MAP_TILE))
+            pygame.draw.rect(self.sc_map, SANDY, (x, y, MAP_TILE, MAP_TILE))
         self.sc.blit(self.sc_map, MAP_POS)
